@@ -6,7 +6,7 @@ import model.Servicos;
 import java.util.List;
 
 public class ServicoController {
-    ServicosRepositorio servicosRepositorio = ServicosRepositorio.getInstance();
+    static ServicosRepositorio servicosRepositorio = ServicosRepositorio.getInstance();
 
     public boolean criarServico(Servicos servico) {
         if(validarServico(servico)){
@@ -39,7 +39,7 @@ public class ServicoController {
         return false;
     }
 
-    public List<Servicos> mostrarServicos() {
+    public static List<Servicos> mostrarServicos() {
         return servicosRepositorio.getServicos();
     }
 
@@ -52,7 +52,7 @@ public class ServicoController {
         }
         return true;
     }
-    public Servicos pegarUmServico(int id){
+    public static Servicos pegarUmServico(int id){
         return servicosRepositorio.VerificarServico(id);
     }
 }

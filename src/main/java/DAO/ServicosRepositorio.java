@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public class ServicosRepositorio {
-    private static ServicosRepositorio servicosRepositorio;
+    public static ServicosRepositorio servicosRepositorio;
     private List<Servicos> servicos = new ArrayList<>();
 
     public static ServicosRepositorio getInstance() {
