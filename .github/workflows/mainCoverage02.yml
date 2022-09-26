@@ -1,5 +1,6 @@
-name: Workflow for Codecov example-java-maven
-on: [workflow_dispatch:]
+name: Measure Coverage 01
+on: 
+  workflow_dispatch:
 jobs:
   run:
     runs-on: ubuntu-latest
