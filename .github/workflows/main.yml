@@ -1,6 +1,8 @@
 name: Measure Coverage
 
 on:
+  pull_request:
+  push:
   workflow_dispatch:
 
 jobs:
