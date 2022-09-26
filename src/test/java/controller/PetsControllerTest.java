@@ -95,6 +95,19 @@ public class PetsControllerTest {
     }
 
     @Test
+    public void validarPetCamposVazio() {
+        Cliente cliente = new Cliente("Marcelle", "15975325896", "81996788310");
+        clienteController.cadastrarCliente(cliente);
+
+        boolean petTestes01 = petsController.validarPet(new Pets("Lilica", "", cliente));
+
+        assertFalse(petTestes01);
+
+        resultado = petTestes01;
+
+    }
+
+    @Test
     public void adicionarPetAoCliente() {
         Cliente cliente = new Cliente("Marcelle", "15975325896", "81996788310");
         clienteController.cadastrarCliente(cliente);
