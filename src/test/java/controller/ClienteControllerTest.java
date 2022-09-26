@@ -1,6 +1,7 @@
 package controller;
 
 import model.Cliente;
+import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
@@ -34,19 +35,6 @@ public class ClienteControllerTest {
         assertTrue(clienteTestes);
 
         resultado = clienteTestes;
-    }
-
-    @Disabled("Teste Atualizado para ParameterizedTest")
-    public void cadastrarClienteCamposVazio() {
-        boolean clienteTestes01 = clienteController.cadastrarCliente(new Cliente("", "12345678910", "81912345678"));
-        boolean clienteTestes02 = clienteController.cadastrarCliente(new Cliente("Angelo", "", "81912345678"));
-        boolean clienteTestes03 = clienteController.cadastrarCliente(new Cliente("Angelo", "12345678910", ""));
-
-        assertFalse(clienteTestes01);
-        assertFalse(clienteTestes02);
-        assertFalse(clienteTestes03);
-
-        resultado = clienteTestes01 + ", " + clienteTestes02 + ", " + clienteTestes03;
     }
 
     @ParameterizedTest
@@ -106,11 +94,9 @@ public class ClienteControllerTest {
 
     @Test
     public void editarCliente() {
-        boolean clienteTestes = clienteController.cadastrarCliente(new Cliente("Angelo", "12345678910", "81912345678"));
-        assertTrue(clienteTestes);
-
         Cliente cliente = new Cliente("Angelo Victor", "12345678910", "81912345678");
-        clienteTestes = clienteController.editarCliente(cliente, 1);
+        boolean clienteTestes = clienteController.editarCliente(cliente, 1);
+
         assertTrue(clienteTestes);
 
         resultado = cliente;
@@ -118,12 +104,10 @@ public class ClienteControllerTest {
 
     @Test
     public void editarClienteErrado() {
-        boolean clienteTestes = clienteController.cadastrarCliente(new Cliente("Angelo", "12345678910", "81912345678"));
-        assertTrue(clienteTestes);
+        Cliente cliente = new Cliente("Angelo Victor", "A", "81912345678");
+        boolean clienteTestes = clienteController.editarCliente(cliente, 2);
 
-        Cliente cliente = new Cliente("Angelo Victor", "12345678910", "81912345678");
-        clienteTestes = clienteController.editarCliente(cliente, 2);
-        assertTrue(clienteTestes);
+        assertFalse(clienteTestes);
 
         resultado = cliente;
     }

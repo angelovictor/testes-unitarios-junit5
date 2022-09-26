@@ -1,10 +1,9 @@
 package suites;
 
+import controller.ClienteControllerTest;
 import org.junit.platform.suite.api.Suite;
 import org.junit.platform.suite.api.SuiteDisplayName;
 import org.junit.platform.suite.api.SelectClasses;
-
-import controller.*;
 
 @Suite
 @SuiteDisplayName("Suite Controller Testes Classes")
