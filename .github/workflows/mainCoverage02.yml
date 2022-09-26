@@ -1,4 +1,4 @@
-name: Measure Coverage 01
+name: Measure Coverage 02
 on: 
   workflow_dispatch:
 jobs:
