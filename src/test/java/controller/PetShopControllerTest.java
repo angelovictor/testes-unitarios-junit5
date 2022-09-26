@@ -15,10 +15,10 @@ public class PetShopControllerTest {
     private ServicoController servicoController = new ServicoController();
     private Object resultado;
 
+
     @AfterEach
     public void capturarResultado(){
-        //String resultado = "";
-        System.out.println("Informações dos testes: " + resultado);
+        System.out.println("Informações do teste: " + resultado);
     }
 
     @Test
@@ -26,13 +26,33 @@ public class PetShopControllerTest {
         boolean valorEntrada = petshopController.addDinheiroCaixa(150);
         assertTrue(valorEntrada);
 
+        resultado = valorEntrada;
+    }
+
+    @Test
+    public void addDinheiroCaixa2() {
         boolean valorEntradaNegativa = petshopController.addDinheiroCaixa(-200);
         assertFalse(valorEntradaNegativa);
 
+        resultado = valorEntradaNegativa;
+    }
+
+    @Test
+    public void addDinheiroCaixa3() {
         boolean valorEntradaInvalida = petshopController.addDinheiroCaixa(0);
         assertFalse(valorEntradaInvalida);
 
-        resultado = valorEntrada + ", " + valorEntradaNegativa + "," + valorEntradaInvalida;
+        resultado = valorEntradaInvalida;
+    }
+
+    @Test
+    public void addDinheiroCaixaSaldoNegativo() {
+        petshopController.addDinheiroCaixa(-150);
+
+        boolean valorEntrada = petshopController.addDinheiroCaixa(50);
+        assertTrue(valorEntrada);
+
+        resultado = valorEntrada;
     }
 
     @Test
@@ -42,17 +62,11 @@ public class PetShopControllerTest {
         boolean valorRetirada = petshopController.removerDinheiroCaixa(25);
         assertTrue(valorRetirada);
 
-        boolean valorRetirada2 = petshopController.removerDinheiroCaixa(110);
-        assertFalse(valorRetirada2);
-
-        boolean valorRetirada3 = petshopController.removerDinheiroCaixa(0);
-        assertTrue(valorRetirada3);
-
-        resultado = valorRetirada + ", " + valorRetirada2 + ", " + valorRetirada3;
+        resultado = valorRetirada;
     }
 
     @Test
-    public void removerDinheiroCaixaNegativo() {
+    public void removerDinheiroCaixaNulo() {
         petshopController.addDinheiroCaixa(0);
 
         boolean valorRetirada = petshopController.removerDinheiroCaixa(138);
@@ -70,11 +84,40 @@ public class PetShopControllerTest {
         petsController.cadastrarPet(pet);
 
         Servicos servico = new Servicos("Tosa Higiênica", 45);
-        petshopController.solicitarServico(pet,servico);
+        boolean teste1 = petshopController.solicitarServico(pet,servico);
+        assertTrue(teste1);
+        resultado = teste1;
 
-        boolean servico1 = petshopController.solicitarServico(pet, servico);
-        assertTrue(servico1);
+    }
 
-        resultado = servico1;
+    @Test
+    public void solicitarServicoClienteInexistente(){
+        Cliente cliente = new Cliente("Wagner","36829130190","81990766290");
+        clienteController.cadastrarCliente(cliente);
+
+        Pets pet = new Pets("Bobô","Basset", null);
+        petsController.cadastrarPet(pet);
+
+        Servicos servico = new Servicos("Consulta", 145);
+
+
+        boolean teste1 = petshopController.solicitarServico(pet,servico);
+        assertFalse(teste1);
+        resultado = teste1;
+    }
+    @Test
+    public void solicitarServicoServicoInexistente(){
+        Cliente cliente = new Cliente("Wagner","36829130190","81990766290");
+        clienteController.cadastrarCliente(cliente);
+
+        Pets pet = new Pets("Bobô","Basset", null);
+        petsController.cadastrarPet(pet);
+
+        Servicos servico = new Servicos("Consulta", 145);
+
+
+        boolean teste1 = petshopController.solicitarServico(pet,null);
+        assertFalse(teste1);
+        resultado = teste1;
     }
 }

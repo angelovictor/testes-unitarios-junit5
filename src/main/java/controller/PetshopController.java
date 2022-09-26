@@ -11,18 +11,20 @@ public class PetshopController {
     private PetsController petsController = new PetsController();
     private ServicoController servicoController = new ServicoController();
 
-    public double getCaixa(){return petshop.getCaixa();}
+    public double getCaixa() {
+        return petshop.getCaixa();
+    }
 
-    public boolean addDinheiroCaixa(double dinheiro){
-        if(dinheiro > 0){
+    public boolean addDinheiroCaixa(double dinheiro) {
+        if (dinheiro > 0) {
             petshop.setCaixa(petshop.getCaixa() + dinheiro);
             return true;
         }
         return false;
     }
 
-    public boolean removerDinheiroCaixa(double dinheiro){
-        if((petshop.getCaixa() - dinheiro) >= 0 ){
+    public boolean removerDinheiroCaixa(double dinheiro) {
+        if ((petshop.getCaixa() - dinheiro) >= 0) {
             petshop.setCaixa(petshop.getCaixa() - dinheiro);
             return true;
         }
