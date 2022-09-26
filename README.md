@@ -4,4 +4,5 @@ Realizando testes unitários com projeto base de Petshop.
 
 Framework utlizado para testes de cobertura: JaCoCo.
 
-[![Measure Coverage](https://github.com/angelovictor/testes-unitarios-junit5/actions/workflows/main.yml/badge.svg)](https://github.com/angelovictor/testes-unitarios-junit5/actions/workflows/main.yml)
+![coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/cicirello/examples-jacoco-badge-generator/main/.github/badges/jacoco.json&style=for-the-badge)
+![branches coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/cicirello/examples-jacoco-badge-generator/main/.github/badges/branches.json&style=for-the-badge)
