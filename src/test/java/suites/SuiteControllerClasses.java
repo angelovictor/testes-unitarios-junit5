@@ -10,8 +10,9 @@ import controller.*;
 @SuiteDisplayName("Suite Controller Testes Classes")
 @SelectClasses({
         ClienteControllerTest.class,
+        PetsControllerTest.class,
         PetShopControllerTest.class,
-        //Adicionar demais classes e separar por virgula...
+        ServicoControllerTest.class,
 })
 public class SuiteControllerClasses {
 

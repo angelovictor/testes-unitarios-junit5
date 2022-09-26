@@ -12,8 +12,8 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
-         
-         <url>https://github.com/angelovictor/testes-unitarios-junit5</url>
+
+    <url>https://github.com/angelovictor/testes-unitarios-junit5</url>
 
     <dependencies>
         <dependency>
@@ -40,13 +40,6 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
             <version>5.9.1</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-launcher</artifactId>
-            <version>1.9.1</version>
             <scope>test</scope>
         </dependency>
 

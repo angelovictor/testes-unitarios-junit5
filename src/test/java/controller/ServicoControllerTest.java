@@ -1,6 +1,5 @@
 package controller;
 
-
 import model.Servicos;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -9,9 +8,6 @@ import java.util.List;
 
 import static DAO.ServicosRepositorio.servicosRepositorio;
 import static org.junit.jupiter.api.Assertions.*;
-
-
-
 
 public class ServicoControllerTest {
     private ServicoController servicoController = new ServicoController();
@@ -108,8 +104,6 @@ public class ServicoControllerTest {
         for (Servicos servicos1 : servicos
         ) {
             System.out.println(servicos.toString());
-
-
         }
     }
 }

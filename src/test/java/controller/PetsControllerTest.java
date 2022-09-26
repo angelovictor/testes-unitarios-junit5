@@ -147,4 +147,20 @@ public class PetsControllerTest {
         }
     }
 
+    @Test
+    public void consultarUmPet() {
+        Cliente cliente = new Cliente("Marcelle", "15975325896", "81996788310");
+        clienteController.cadastrarCliente(cliente);
+
+        petsController.cadastrarPet(new Pets("Chiwito", "chihuahua", cliente));
+
+        Pets pet = petsController.pegarUmPet(1);
+
+        assertEquals(pet, petsController.pegarUmPet(1));
+    }
+
+    @Test
+    public void consultarUmPetErrado() {
+        assertNull(petsController.pegarUmPet(50));
+    }
 }

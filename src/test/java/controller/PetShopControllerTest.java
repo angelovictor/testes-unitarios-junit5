@@ -21,7 +21,6 @@ public class PetShopControllerTest {
         System.out.println("Informações dos testes: " + resultado);
     }
 
-
     @Test
     public void addDinheiroCaixa() {
         boolean valorEntrada = petshopController.addDinheiroCaixa(150);
@@ -78,5 +77,4 @@ public class PetShopControllerTest {
 
         resultado = servico1;
     }
-
 }
