@@ -7,11 +7,9 @@ import controller.ServicoController;
 import model.Cliente;
 import model.Pets;
 import model.Servicos;
-import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Scanner;
-
 
 public class MenuCliente {
 
@@ -42,7 +40,7 @@ public class MenuCliente {
         }
 
     }
-    @Test
+
     public void mostrarMenu() {
         PetsController petsController = new PetsController();
         ClienteController clienteController = new ClienteController();

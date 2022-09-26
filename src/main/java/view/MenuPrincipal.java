@@ -1,6 +1,5 @@
 package view;
 
-
 import utils.GeradorClients;
 import utils.GeradorPets;
 import utils.GeradorServico;
@@ -40,6 +39,4 @@ public class MenuPrincipal {
             }
         }
     }
-
-
 }
