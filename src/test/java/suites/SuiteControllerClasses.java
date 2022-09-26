@@ -1,8 +1,8 @@
 package suites;
 
-import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 import org.junit.platform.suite.api.SuiteDisplayName;
+import org.junit.platform.suite.api.SelectClasses;
 
 import controller.*;
 
@@ -12,7 +12,7 @@ import controller.*;
         ClienteControllerTest.class,
         //Adicionar demais classes e separar por virgula...
 })
-public class SuiteClassesController {
+public class SuiteControllerClasses {
 
 }
 
