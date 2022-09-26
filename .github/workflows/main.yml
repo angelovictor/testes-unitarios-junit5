@@ -15,14 +15,10 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-      - name: Run the Maven Tests
-        run: mvn clean test
+      - name: Build with Maven
+        run: mvn -B test
 
-      - name: Add coverage to PR
-        id: jacoco
-        uses: madrapps/jacoco-report@v1.3
+      - name: Generate JaCoCo Badge
+        uses: cicirello/jacoco-badge-generator@v2
         with:
-          paths: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
-          token: ${{ secrets.GITHUB_TOKEN }}
-          min-coverage-overall: 40
-          min-coverage-changed-files: 5
+          generate-branches-badge: true
