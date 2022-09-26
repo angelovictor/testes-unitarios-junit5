@@ -3,3 +3,5 @@
 Realizando testes unitários com projeto base de Petshop.
 
 Framework utlizado para testes de cobertura: JaCoCo.
+
+[![Measure Coverage](https://github.com/angelovictor/testes-unitarios-junit5/actions/workflows/main.yml/badge.svg)](https://github.com/angelovictor/testes-unitarios-junit5/actions/workflows/main.yml)
