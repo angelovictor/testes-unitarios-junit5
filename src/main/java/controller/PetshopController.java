@@ -11,9 +11,7 @@ public class PetshopController {
     private PetsController petsController = new PetsController();
     private ServicoController servicoController = new ServicoController();
 
-    public double getCaixa(){
-        return petshop.getCaixa();
-    }
+    public double getCaixa(){return petshop.getCaixa();}
 
     public boolean addDinheiroCaixa(double dinheiro){
         if(dinheiro > 0){
