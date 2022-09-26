@@ -1,15 +1,15 @@
 package controller;
 
 import model.Cliente;
-
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ClienteControllerTest {
-    private ClienteController clienteController = new ClienteController();
+    private final ClienteController clienteController = new ClienteController();
     private Object resultado;
 
     @BeforeEach
@@ -17,10 +17,15 @@ public class ClienteControllerTest {
         clienteController.cadastrarCliente(new Cliente("Angelo", "12345678910", "81912345678"));
     }
 
+    @BeforeEach
+    void beforeEach(TestInfo testInfo) {
+        System.out.println("Teste: "+testInfo.getTestMethod().get().getName());
+    }
+
     @AfterEach
     public void capturarResultado(){
         //String resultado = "";
-        System.out.println("Informações dos testes: " + resultado);
+        System.out.println("Informações do teste: " + resultado + "\n----------");
     }
 
     @Test
@@ -31,7 +36,7 @@ public class ClienteControllerTest {
         resultado = clienteTestes;
     }
 
-    @Test
+    @Disabled("Teste Atualizado para ParameterizedTest")
     public void cadastrarClienteCamposVazio() {
         boolean clienteTestes01 = clienteController.cadastrarCliente(new Cliente("", "12345678910", "81912345678"));
         boolean clienteTestes02 = clienteController.cadastrarCliente(new Cliente("Angelo", "", "81912345678"));
@@ -42,6 +47,19 @@ public class ClienteControllerTest {
         assertFalse(clienteTestes03);
 
         resultado = clienteTestes01 + ", " + clienteTestes02 + ", " + clienteTestes03;
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "'',12345678910,81912345678",
+            "Angelo,'',81912345678",
+            "Angelo,12345678910,''"
+    })
+    void cadastrarClienteCamposVazio(ArgumentsAccessor clientes) {
+        boolean clienteTestes = clienteController.cadastrarCliente(new Cliente(clientes.getString(0), clientes.getString(1), clientes.getString(2)));
+        assertFalse(clienteTestes);
+
+        resultado = clientes.toList();
     }
 
     @Test
@@ -73,12 +91,17 @@ public class ClienteControllerTest {
 
     @Test
     public void removerCliente() {
+        Cliente clienteRemovido = clienteController.pegarCliente(1);
         assertTrue(clienteController.removerCliente(1));
+
+        resultado = "Cliente removido: " + clienteRemovido.getNome() + ", CPF: " + clienteRemovido.getCpf();
     }
 
     @Test
     public void removerClienteErrado() {
         assertFalse(clienteController.removerCliente(50));
+
+        resultado = "Cliente não localizado";
     }
 
     @Test
@@ -116,6 +139,8 @@ public class ClienteControllerTest {
 
     @Test
     public void consultarClienteErrado() {
-        assertEquals(null, clienteController.pegarCliente(50));
+        assertNull(clienteController.pegarCliente(50));
+
+        resultado = "Cliente não localizado";
     }
 }
