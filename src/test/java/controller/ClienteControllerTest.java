@@ -7,6 +7,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ClienteControllerTest {
@@ -126,5 +128,14 @@ public class ClienteControllerTest {
         assertNull(clienteController.pegarCliente(50));
 
         resultado = "Cliente não localizado";
+    }
+
+    @Test
+    public void listarClientes() {
+        List<Cliente> clientes = clienteController.listarClientes();
+        for (Cliente cliente: clientes
+        ) {
+            System.out.println(cliente.toString());
+        }
     }
 }
