@@ -20,7 +20,6 @@ public class MenuCliente {
                     "CPF do cliente:" + cliente.getCpf() + " \n" +
                     "Telefone do cliente:" + cliente.getTelefone() + " \n");
         }
-
     }
 
     public void mostrarPets(List<Pets> pets) {
@@ -31,14 +30,12 @@ public class MenuCliente {
                     "Nome do dono:" + pet.getDono().getNome() + " \n" +
                     "ID do dono: " + pet.getDono().getId());
         }
-
     }
 
     public void mostrarServicos(List<Servicos> servicos) {
         for (Servicos servico: servicos) {
             servico.toString();
         }
-
     }
 
     public void mostrarMenu() {
